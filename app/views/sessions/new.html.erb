@@ -1,0 +1,39 @@
+
+
+<div class="col-md-6 col-center">
+	<h1 class="text-center">Login</h1>
+		<p class="text-center">This page for the people who want to login</p>
+
+<%= form_for :session, url: login_path do |f| %>
+<!-- 上で@sessionなどがないのはsessionではモデルを作成していないため
+データベースを参照しているわけではないから、リソース(controller名)とわたし先のprefixを指定(自動的にpostメソッド) -->
+	<div class="form-group">
+		<%= f.label :email %>
+		<%= f.text_field :email , class: "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :password %> <%= link_to "(Forgot password)", "#" %>
+		<%= f.password_field :password, class: "form-control" %>
+	</div>
+
+	<div class="form-group"> 
+		<%= f.submit class: "btn btn-primary form-control", value: "Login" %>
+	</div>
+	<p>New User?<%= link_to "(Signup Now!)", signup_path %></p>
+
+<% end %>
+	
+
+</div>
+
+
+<!-- <div class="col-md-6 col-center">
+
+	<p class="text-center">
+		This is a Sign Up page. You can register if you haven't done it.
+	</p>
+</div>
+
+<%#= render "/users/form" %>
+ -->

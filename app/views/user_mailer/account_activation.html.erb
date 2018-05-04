@@ -1,0 +1,19 @@
+<!-- <h1>User#account_activation</h1>
+
+<p>
+  <%#= @greeting %>, find me in app/views/user_mailer/account_activation.html.erb
+</p>
+ -->
+<!-- mailに表示される文言 -->
+
+<h1>Awesomeblog</h1>
+
+<p>Good day <%= @user.name %>!</p>
+
+<p>Welcome to Awesomeblog! Click on the link below to activate your account:</p>
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
+<!-- pathの所をurlとする事でURLを作成する事ができる。account_activationのpathへtokenとemailをurlパラメータに送りたい -->
+<!-- 右記がpath  edit_account_activation GET    /account_activations/:id/edit(.:format) -->
+
+<!-- http://localhost:3000/account_activations/O3EKCYMAnLy9bv3pH0Hsvw/edit?email=poochie%40email.com

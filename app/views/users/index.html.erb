@@ -1,0 +1,26 @@
+<%= provide(:title, "All users" ) %>
+
+<%= will_paginate %>
+<div class="jumbotron">
+<h1>All Users</h1>
+</div>
+<ul class="users">
+
+<%= render @users %>
+<!--  <#% @users.each do |user| %>
+	<li>
+		<#%= gravatar_for(user) %> <#%= link_to user.name, user %>
+	<#% if current_user.admin? && !current_user?(user)  %>
+		!current_user?(user) が等しくないですよね？ trueの場合
+		<#%= link_to("Delete", user_path(user.id), method: :delete, data: {confirm: "Are you Sure?"}) %>
+	<#% end %>
+	</li>
+ <#% end %> -->
+
+</ul>
+
+<%= will_paginate %>
+
+<!-- （each doとrenderでviewファイルを閲覧を同時に行なっている）
+usersフォルダの_userファイルというファイル名だから、ショートカットができる -->
+

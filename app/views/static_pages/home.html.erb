@@ -1,0 +1,36 @@
+<%= provide(:title, "home") %>
+
+<% unless logged_in? %>
+	<h1>Awesome Blog Application</h1>
+	<p>
+		This is the home page for the Awesome Blog.<br>
+
+		This is the project under the <a href="#">Kredo Japan</a>
+	</p>
+
+<% else %>
+
+	<div class=“row”>
+		<div class="col-md-5">
+			<%= render "shared/user_info" %>
+	        <%= render 'shared/stats' %>
+			<%= render "shared/micropost_form" %>
+		</div>
+
+
+	<aside class="col-md-7">
+		<h3>Micropost feed</h3>
+		<% if @feed_items.any? %>
+			<ul class="microposts">
+				<%= render @feed_items %>
+					<!-- user.rbの中でMicropostsを作ってるから呼び出せる。fee rendermicropostsフォルダのmircropostパーシャルをパーシャルを呼び出している -->
+			</ul>
+			<%= will_paginate @feed_items %>
+			<% else %>
+				<p>No microposts.</p>
+		<% end %>
+	</aside>
+	</div>
+<% end %>
+
+

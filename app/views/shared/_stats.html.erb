@@ -1,0 +1,23 @@
+<% @user ||= current_user %>
+<!-- もしnilだったらcurrent_userを入れる(home)nilじゃなかったらshowぺーじ -->
+<div class="stats">
+  <a href="<%= following_user_path(@user) %>">
+   <strong id="following" class="stat">
+      <%= @user.following.count %>
+    </strong>
+    following
+  </a>
+   <%#= link_to following_user_path(@user) do %>
+ <!--    <strong>
+        <%= current_user.following.count %>
+    </strong>
+    <%# end %>
+    ↑link_toでhttp methodを利用したいときは do endの間にlinkテキストを挿入する-->
+
+  <a href="<%= followers_user_path(@user) %>">
+    <strong id="followers" class="stat">
+      <%= @user.followers.count %>
+    </strong>
+    followers
+  </a>
+</div>

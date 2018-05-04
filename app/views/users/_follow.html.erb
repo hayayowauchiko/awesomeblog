@@ -1,0 +1,5 @@
+<%= form_for(current_user.active_relationships.build) do |f| %>
+ <!-- 使いたい時にだけ利用したいから上のように記述する -->
+  <div><%= hidden_field_tag :followed_id, @user.id %></div>
+  <%= f.submit "Follow", class: "btn btn-primary" %>
+<% end %>
